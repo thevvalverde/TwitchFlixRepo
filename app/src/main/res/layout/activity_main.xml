@@ -27,25 +27,28 @@
 
         <Button
             android:id="@+id/watch_button"
+            style="@style/ButtonText"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
             android:background="@drawable/secondary_background_one"
             android:fontFamily="@font/alfa_slab_one"
-            android:text="Watch"
+            android:shadowColor="#000000"
+            android:text="@string/watch"
             android:textSize="32sp" />
 
         <Button
             android:id="@+id/stream_button"
+            style="@style/ButtonText"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_margin="8dp"
             android:layout_weight="1"
-            android:fontFamily="@font/alfa_slab_one"
-            android:text="Stream"
             android:background="@drawable/secondary_background_two"
-            android:textSize="32sp"
-            android:layout_margin="8dp"/>
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="@string/stream"
+            android:textSize="32sp" />
     </LinearLayout>
 
 </LinearLayout>
