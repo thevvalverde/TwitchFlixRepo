@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">TwitchFlix</string>
     <string name="app_title">TwitchFlix</string>
+i:wq
     <string name="stream">Stream</string>
     <string name="watch">Watch</string>
+    <string name="username_login_text">Username or E-mail</string>
+    <string name="password_text">Password</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="forgot_my_password">Forgot my Password</string>
 </resources>

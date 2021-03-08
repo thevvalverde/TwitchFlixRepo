@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
         <item>@font/alfa_slab_one</item>
+        <item>@font/armata</item>
     </array>
 </resources>

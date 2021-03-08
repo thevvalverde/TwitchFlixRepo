@@ -32,11 +32,11 @@
             android:layout_height="200dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:background="@drawable/secondary_background_one"
+            android:background="@drawable/button_bg_one"
             android:fontFamily="@font/alfa_slab_one"
-            android:shadowColor="#000000"
             android:text="@string/watch"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            />
 
         <Button
             android:id="@+id/stream_button"
@@ -45,7 +45,7 @@
             android:layout_height="200dp"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:background="@drawable/secondary_background_two"
+            android:background="@drawable/button_bg_two"
             android:fontFamily="@font/alfa_slab_one"
             android:text="@string/stream"
             android:textSize="32sp" />
