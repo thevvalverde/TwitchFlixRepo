@@ -9,4 +9,5 @@ i:wq
     <string name="login">Login</string>
     <string name="create_new_account">Create new account</string>
     <string name="forgot_my_password">Forgot my Password</string>
+    <string name="remember_me">Remember Me</string>
 </resources>
