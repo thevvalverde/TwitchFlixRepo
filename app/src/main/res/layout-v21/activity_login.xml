@@ -48,26 +48,27 @@
             android:background="@drawable/login_fields"
             android:hint="@string/password_text"
             android:inputType="textPassword" />
+
+
         <CheckBox
             android:id="@+id/remember_me"
+            style="@style/ButtonText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/remember_me"
+            android:layout_marginStart="0"
             android:layout_marginTop="5dp"
-            style="@style/ButtonText"
-            android:buttonTint="@color/white"
-            android:layout_marginStart="5dp" />
-
+            android:text="@string/remember_me"
+            app:buttonTint="@color/white" />
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/login_button"
-            style="@style/LoginScreenButtons"
+            style="@style/LoginScreenButtonLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:background="@drawable/buttons_login_screen"
+            android:background="@drawable/buttons_login_screen_white"
             android:fontFamily="@font/armata"
+            android:onClick="onClick"
             android:text="@string/login"
             android:textSize="24sp" />
 

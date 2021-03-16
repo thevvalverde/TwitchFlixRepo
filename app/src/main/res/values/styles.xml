@@ -37,4 +37,15 @@
         <item name="android:padding">5dp</item>
         <item name="fontFamily">@font/armata</item>
     </style>
+    <style name="LoginScreenButtonLoginButton" parent="SingleTheme.TwitchFlix">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:shadowColor">@color/light_blue_gray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowRadius">10</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="fontFamily">@font/armata</item>
+    </style>
 </resources>
