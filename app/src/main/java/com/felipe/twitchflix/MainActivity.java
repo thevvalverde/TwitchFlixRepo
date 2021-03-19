@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         this.mViewHolder.watchButton = findViewById(R.id.watch_button);
         this.mViewHolder.streamButton = findViewById(R.id.stream_button);
 
