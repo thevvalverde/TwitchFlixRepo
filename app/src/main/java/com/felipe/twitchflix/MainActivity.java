@@ -1,6 +1,8 @@
 package com.felipe.twitchflix;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -13,11 +15,12 @@ import com.felipe.twitchflix.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     static ViewHolder mViewHolder = new ViewHolder();
+    private DrawerLayout mDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_drawer);
 
 
         this.mViewHolder.watchButton = findViewById(R.id.watch_button);
@@ -26,6 +29,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.watchButton.setOnClickListener(this);
         this.mViewHolder.streamButton.setOnClickListener(this);
 
+        mDrawer = findViewById(R.id.drawer_layout);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
