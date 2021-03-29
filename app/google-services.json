@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "782279370726",
+    "project_id": "twitchflix-c2ccb",
+    "storage_bucket": "twitchflix-c2ccb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782279370726:android:94b20b5c25c444b4a3d827",
+        "android_client_info": {
+          "package_name": "com.felipe.twitchflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782279370726-e9fqdm1c39t011gbtunprjoc33es139r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMoXDCQctt8XpM_tY-6Q6a8LXzNyg_WEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782279370726-e9fqdm1c39t011gbtunprjoc33es139r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
