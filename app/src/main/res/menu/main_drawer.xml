@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
-        <item android:id="@+id/delete_account"
-            android:icon="@drawable/ic_baseline_delete_forever_24"
-            android:title="@string/delete_account"/>
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_baseline_keyboard_return_24"
+            android:title="Logout" />
     </group>
 
 </menu>
