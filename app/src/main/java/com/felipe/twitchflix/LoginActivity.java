@@ -22,11 +22,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     Button mLoginButton;
+    Button mCreateAccount;
     EditText mUsername;
     EditText mPassword;
     String mUserText = "";
     String mPassText = "";
-    final String TAG = "TwitchFlix";git c
+    final String TAG = "TwitchFlix";
 
     // Firebase instances variables
     FirebaseAuth mFirebaseAuth;
@@ -39,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         mLoginButton = findViewById(R.id.login_button);
+        mCreateAccount = findViewById(R.id.new_account_button);
         mUsername = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
 
@@ -62,6 +64,13 @@ public class LoginActivity extends AppCompatActivity {
 
                 //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 //startActivity(intent);
+            }
+        });
+
+        mCreateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, CreateAccountActivity.class));
             }
         });
 

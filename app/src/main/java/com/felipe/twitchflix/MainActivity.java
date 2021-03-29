@@ -107,4 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mFirebaseAuth.signOut();
+    }
 }

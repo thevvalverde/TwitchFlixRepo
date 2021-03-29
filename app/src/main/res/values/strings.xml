@@ -17,4 +17,7 @@ i:wq
     <string name="create_user_hint">awesomeUsername</string>
     <string name="password">Password:</string>
     <string name="password_again">Repeat your password:</string>
+    <string name="email">Email:</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="create">Create</string>
 </resources>
