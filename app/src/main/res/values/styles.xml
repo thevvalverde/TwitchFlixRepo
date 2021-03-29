@@ -48,4 +48,10 @@
         <item name="android:padding">5dp</item>
         <item name="fontFamily">@font/armata</item>
     </style>
+    <style name="GeneralText" parent="SingleTheme.TwitchFlix">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/armata</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
 </resources>
