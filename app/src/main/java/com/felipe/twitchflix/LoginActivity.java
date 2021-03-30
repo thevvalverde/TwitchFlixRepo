@@ -2,12 +2,14 @@ package com.felipe.twitchflix;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,13 +23,27 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+
+    // Keys
+    public static final String SHAREDPREF_KEY = "com.felipe.twitchflix.PREFERENCE_FILE_KEY";
+    public static final String KEY_CHECKBOX = "RememberMeKey";
+    public static final String KEY_MAILLOGIN = "LoginEmailKey";
+    public static final String KEY_PASSLOGIN = "LoginPassKey";
+
+    // Variables
     Button mLoginButton;
     Button mCreateAccount;
+    CheckBox mCheckBox;
     EditText mUsername;
     EditText mPassword;
     String mUserText = "";
     String mPassText = "";
     final String TAG = "TwitchFlix";
+
+    // Shared Preferences
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+
 
     // Firebase instances variables
     FirebaseAuth mFirebaseAuth;
@@ -37,13 +53,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        sharedPref = this.getSharedPreferences(SHAREDPREF_KEY, MODE_PRIVATE);
+
+
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         mLoginButton = findViewById(R.id.login_button);
         mCreateAccount = findViewById(R.id.new_account_button);
+        mCheckBox = findViewById(R.id.remember_me);
         mUsername = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
 
+        if(sharedPref.getBoolean(KEY_CHECKBOX, false)) {
+            mCheckBox.setChecked(true);
+            Log.d(TAG, "Checkbox should be checked");
+            mUserText = sharedPref.getString(KEY_MAILLOGIN, null);
+            mPassText = sharedPref.getString(KEY_PASSLOGIN, null);
+            tryLogin(mUserText, mPassText);
+        }
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +85,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please insert your password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // TODO
-                // CREDENTIAL CHECKING
                 tryLogin(mUserText, mPassText);
 
-                //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                //startActivity(intent);
             }
         });
 
@@ -77,12 +100,27 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void tryLogin(String user, String pass) {
+        if(user == null || pass == null) {
+            Toast.makeText(this, "There has been an error.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mFirebaseAuth.signInWithEmailAndPassword(mUserText, mPassText)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Log.d(TAG, "Login successful.");
+                            if(mCheckBox.isChecked()) {
+                                editor = sharedPref.edit();
+                                editor.putBoolean(KEY_CHECKBOX, true);
+                                editor.putString(KEY_MAILLOGIN, mUserText);
+                                editor.putString(KEY_PASSLOGIN, mPassText);
+                                editor.apply();
+                            } else {
+                                editor = sharedPref.edit();
+                                editor.putBoolean(KEY_CHECKBOX, false);
+                                editor.apply();
+                            }
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
@@ -90,6 +128,9 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else {
                             Log.d(TAG, "Login Failed.");
+                            editor = sharedPref.edit();
+                            editor.putBoolean(KEY_CHECKBOX, false);
+                            editor.apply();
                             Toast.makeText(LoginActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                         }
                     }

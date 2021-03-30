@@ -101,6 +101,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                     Toast.makeText(CreateAccountActivity.this, "Please insert a valid email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(mUser.length()<5 || mUser.length()>15) {
+                    Toast.makeText(CreateAccountActivity.this, "Please insert a user with 5 to 14 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(mPass.length()<6) {
                     Toast.makeText(CreateAccountActivity.this, "Please insert a password of at least 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
