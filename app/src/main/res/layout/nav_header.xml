@@ -12,11 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/alfa_slab_one"
+        android:fontFamily="@font/armata"
+        android:layout_marginTop="10dp"
         android:letterSpacing="0.02"
         android:padding="12dp"
         android:text="@string/anonymous"
         android:textColor="@color/purple_200"
-        android:textSize="26sp" />
+        android:textSize="24sp" />
 
 </LinearLayout>

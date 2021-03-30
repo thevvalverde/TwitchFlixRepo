@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static ViewHolder mViewHolder = new ViewHolder();
     private DrawerLayout mDrawer;
     private String mUsername;
-    private TextView navHeader;
 
     // Firebase instance variables
     private FirebaseAuth mFirebaseAuth;
@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         mUsername = mFirebaseUser.getDisplayName();
 
+        Log.d(CreateAccountActivity.TAG, "mUsername: " + mUsername);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.nav_header_title);
+        navUsername.setText(mUsername);
 
         this.mViewHolder.watchButton = findViewById(R.id.watch_button);
         this.mViewHolder.streamButton = findViewById(R.id.stream_button);
