@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
+    <!-- Container for contents of drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -27,6 +27,7 @@
         app:itemTextColor="@color/white"
         app:menu="@menu/main_drawer">
 
+        <!-- Delete Account icon (has to be separate so it can be dragged to the bottom) -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"

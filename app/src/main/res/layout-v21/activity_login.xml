@@ -67,7 +67,6 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/buttons_login_screen_white"
             android:fontFamily="@font/armata"
-            android:onClick="onClick"
             android:text="@string/login"
             android:textSize="24sp" />
 
@@ -77,24 +76,22 @@
             android:orientation="horizontal">
 
             <Button
-                style="@style/LoginScreenButtons"
                 android:id="@+id/new_account_button"
+                style="@style/LoginScreenButtons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2.5dp"
-                android:layout_marginRight="2.5dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_login_screen"
                 android:text="@string/create_new_account"
                 android:textSize="16sp" />
 
             <Button
-                style="@style/LoginScreenButtons"
                 android:id="@+id/forgot_pass_button"
+                style="@style/LoginScreenButtons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2.5dp"
-                android:layout_marginLeft="2.5dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_login_screen"
                 android:text="@string/forgot_my_password"

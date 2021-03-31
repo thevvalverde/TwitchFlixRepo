@@ -21,4 +21,6 @@ i:wq
     <string name="create_an_account">Create an account</string>
     <string name="create">Create</string>
     <string name="anonymous">anonymous</string>
+    <string name="watch_wip">This watch page is a Work In Progress.</string>
+    <string name="stream_wip">This stream page is a Work In Progress.</string>
 </resources>

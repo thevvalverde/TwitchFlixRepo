@@ -2,18 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:orientation="vertical"
-    android:background="@color/purple_black"
     android:layout_centerVertical="true"
-    >
+    android:background="@color/purple_black"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/nav_header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/armata"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/armata"
         android:letterSpacing="0.02"
         android:padding="12dp"
         android:text="@string/anonymous"

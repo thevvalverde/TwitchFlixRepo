@@ -11,9 +11,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This stream page is a Work In Progress."
         android:gravity="center"
+        android:text="@string/stream_wip"
         android:textColor="@color/white"
-        android:textSize="36sp"/>
+        android:textSize="36sp" />
 
 </LinearLayout>
