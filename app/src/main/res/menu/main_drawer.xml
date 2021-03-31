@@ -4,7 +4,7 @@
         <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_baseline_keyboard_return_24"
-            android:title="Logout" />
+            android:title="@string/button_logout" />
     </group>
 
 </menu>

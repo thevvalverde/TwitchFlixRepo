@@ -1,26 +1,33 @@
 <resources>
-    <string name="app_name">TwitchFlix</string>
     <string name="app_title">TwitchFlix</string>
-i:wq
-    <string name="stream">Stream</string>
-    <string name="watch">Watch</string>
-    <string name="username_login_text">Username or E-mail</string>
-    <string name="password_text">Password</string>
-    <string name="login">Login</string>
-    <string name="create_new_account">Create new account</string>
-    <string name="forgot_my_password">Forgot my Password</string>
-    <string name="remember_me">Remember Me</string>
-    <string name="delete_account">Delete Account</string>
-    <string name="register_pass_hint">safepassword123</string>
-    <string name="create_email_hint">someone@somewhere.example</string>
+
+    <!-- Fields -->
+    <string name="email">Email:</string>
     <string name="username">Username:</string>
-    <string name="create_user_hint">awesomeUsername</string>
     <string name="password">Password:</string>
     <string name="password_again">Repeat your password:</string>
-    <string name="email">Email:</string>
-    <string name="create_an_account">Create an account</string>
-    <string name="create">Create</string>
+
+    <!-- Fields' Hints -->
+    <string name="hint_username">Username or E-mail</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_create_email">someone@somewhere.example</string>
+    <string name="hint_create_password">safepassword123</string>
+    <string name="hint_create_user">awesomeUsername</string>
+
+    <!-- Buttons -->
+    <string name="button_login">Login</string>
+    <string name="button_create_account">Create new account</string>
+    <string name="button_forgot">Forgot my Password</string>
+    <string name="checkbox_rememberme">Remember Me</string>
+    <string name="button_create">Create</string>
+    <string name="button_logout">Logout</string>
+    <string name="button_delete_account">Delete Account</string>
+    <string name="button_stream">Stream</string>
+    <string name="button_watch">Watch</string>
+
+    <!-- Placeholders -->
     <string name="anonymous">anonymous</string>
     <string name="watch_wip">This watch page is a Work In Progress.</string>
     <string name="stream_wip">This stream page is a Work In Progress.</string>
+
 </resources>

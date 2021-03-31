@@ -12,8 +12,8 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/armata"
         android:gravity="center"
-        android:text="@string/create_an_account"
-        android:textColor="@color/white"
+        android:text="@string/button_create_account"
+        android:textColor="@color/bw_white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/login_fields"
-            android:hint="@string/create_email_hint"
+            android:hint="@string/hint_create_email"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
 
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/login_fields"
-            android:hint="@string/create_user_hint"
+            android:hint="@string/hint_create_user"
             android:importantForAutofill="no"
             android:inputType="text" />
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/login_fields"
-            android:hint="@string/register_pass_hint"
+            android:hint="@string/hint_create_password"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
 
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/login_fields"
-            android:hint="@string/register_pass_hint"
+            android:hint="@string/hint_create_password"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
 
@@ -107,7 +107,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/buttons_login_screen_white"
-            android:text="@string/create" />
+            android:text="@string/button_create" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

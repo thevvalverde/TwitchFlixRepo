@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_main">#250078</color>
-    <color name="purple_200">#b896ff</color>
-    <color name="purple_500">#9b74ed</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="blue">#002B7A</color>
-    <color name="dark_blue">#000F2B</color>
-    <color name="bright_purple">#78007A</color>
-    <color name="wine">#7A0054</color>
-    <color name="red">#FF0303</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="light_blue_gray">#AEAFCA</color>
-    <color name="gray">#6C6C6C</color>
-    <color name="dark_gray">#3C3C3C</color>
-    <color name="purple_gray">#2B2635</color>
-    <color name="purple_black">#1D0F39</color>
-    <color name="yellow">#E0D967</color>
-    <color name="golden">#948D26</color>
+
+    <!-- Main color theme -->
+    <color name="main_navy_blue">#250078</color>
+    <color name="main_wine_purple">#7A0054</color>
+    <color name="main_royal_purple">#78007A</color>
+    <color name="main_medium_lilac">#9B74ED</color>
+    <color name="main_light_lilac">#B896FF</color>
+    <color name="main_light_yonder">#AEAFCA</color>
+
+    <!-- Main theme shades -->
+    <color name="shade_oxford_blue">#000F2B</color>
+    <color name="shade_dark_violet">#1D0F39</color>
+    <color name="shade_raisin_black">#2B2635</color>
+
+    <!-- Black and white tones -->
+    <color name="bw_rich_black">#010203</color>
+    <color name="bw_jet_gray">#3C3C3C</color>
+    <color name="bw_dim_gray">#6C6C6C</color>
+    <color name="bw_white">#FFFFFF</color>
+
+    <!-- Warm accent colors -->
+    <color name="accent_imperial_red">#FF0330</color>
+    <color name="accent_olive_gold">#948D26</color>
+    <color name="accent_straw_yellow">#E0D967</color>
+
+    <!-- Cool accent colors -->
+    <color name="accent_patricks_blue">#002B7A</color>
+    <color name="accent_dark_cyan">#018786</color>
+    <color name="accent_turquoise">#03DAC5</color>
 
 </resources>

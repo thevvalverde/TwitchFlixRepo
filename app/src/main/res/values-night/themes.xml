@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.TwitchFlix" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_main</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/main_light_lilac</item>
+        <item name="colorPrimaryVariant">@color/main_navy_blue</item>
+        <item name="colorOnPrimary">@color/bw_rich_black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/accent_turquoise</item>
+        <item name="colorSecondaryVariant">@color/accent_turquoise</item>
+        <item name="colorOnSecondary">@color/bw_rich_black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

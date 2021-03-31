@@ -3,13 +3,13 @@
     <!-- Base application theme. -->
     <style name="SingleTheme.TwitchFlix" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_main</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/main_light_lilac</item>
+        <item name="colorPrimaryVariant">@color/main_navy_blue</item>
+        <item name="colorOnPrimary">@color/bw_rich_black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/accent_turquoise</item>
+        <item name="colorSecondaryVariant">@color/accent_turquoise</item>
+        <item name="colorOnSecondary">@color/bw_rich_black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
@@ -18,18 +18,21 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
     <style name="ButtonText" parent="SingleTheme.TwitchFlix">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:shadowColor">@color/black</item>
+        <item name="android:textColor">@color/bw_white</item>
+        <item name="android:shadowColor">@color/bw_rich_black</item>
         <item name="android:shadowRadius">10</item>
     </style>
+
     <style name="LoginFields">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textColor">@color/bw_white</item>
+        <item name="android:textColorHint">@color/bw_dim_gray</item>
     </style>
+
     <style name="LoginScreenButtons" parent="SingleTheme.TwitchFlix">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:shadowColor">@color/black</item>
+        <item name="android:textColor">@color/bw_white</item>
+        <item name="android:shadowColor">@color/bw_rich_black</item>
         <item name="android:shadowRadius">10</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
@@ -37,9 +40,10 @@
         <item name="android:padding">5dp</item>
         <item name="fontFamily">@font/armata</item>
     </style>
+
     <style name="LoginScreenButtonLoginButton" parent="SingleTheme.TwitchFlix">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:shadowColor">@color/light_blue_gray</item>
+        <item name="android:textColor">@color/bw_rich_black</item>
+        <item name="android:shadowColor">@color/main_light_yonder</item>
         <item name="android:textStyle">bold</item>
         <item name="android:shadowRadius">10</item>
         <item name="android:layout_marginTop">5dp</item>
@@ -48,8 +52,9 @@
         <item name="android:padding">5dp</item>
         <item name="fontFamily">@font/armata</item>
     </style>
+
     <style name="GeneralText" parent="SingleTheme.TwitchFlix">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/bw_white</item>
         <item name="fontFamily">@font/armata</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_margin">5dp</item>
