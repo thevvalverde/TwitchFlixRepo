@@ -1,11 +1,5 @@
 package com.felipe.twitchflix;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,7 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.felipe.twitchflix.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,9 +23,14 @@ import static com.felipe.twitchflix.LoginActivity.SHAREDPREF_KEY;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
+    // Static values
     private static final String ANONYMOUS = "Anonymous";
+
+    // Views & Layouts
     static ViewHolder mViewHolder = new ViewHolder();
     private DrawerLayout mDrawer;
+
+    // Value holders
     private String mUsername;
 
     // Firebase instance variables
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Check if user is logged
         mFirebaseAuth = FirebaseAuth.getInstance();
         if (mFirebaseAuth.getCurrentUser() == null) {
             startActivity(new Intent(this, LoginActivity.class));
@@ -53,16 +57,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         sharedPref = getSharedPreferences(SHAREDPREF_KEY, MODE_PRIVATE);
 
+        // Firebase instantiation
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         mUsername = mFirebaseUser.getDisplayName();
 
         Log.d(CreateAccountActivity.TAG, "mUsername: " + mUsername);
 
+        // View linking
         NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.nav_header_title);
+        TextView navUsername = headerView.findViewById(R.id.nav_header_title);
         navUsername.setText(mUsername);
-
         this.mViewHolder.watchButton = findViewById(R.id.watch_button);
         this.mViewHolder.streamButton = findViewById(R.id.stream_button);
 
@@ -74,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    // If drawer is open, back button closes it
     @Override
     public void onBackPressed() {
         if (mDrawer.isDrawerOpen(GravityCompat.START)) {
@@ -97,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.logout:
                 signOut();
                 break;

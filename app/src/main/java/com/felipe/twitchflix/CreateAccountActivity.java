@@ -2,7 +2,6 @@ package com.felipe.twitchflix;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,7 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
@@ -26,10 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 class User {
     private String username;
@@ -58,6 +51,8 @@ class User {
 }
 
 public class CreateAccountActivity extends AppCompatActivity {
+
+    // Views
     Button mCreateButton;
     EditText mUserText;
     EditText mMailText;
@@ -70,11 +65,13 @@ public class CreateAccountActivity extends AppCompatActivity {
     DatabaseReference myUserRef;
     FirebaseUser mFirebaseUser;
 
+    // Value holders
     private String mUser;
     private String mMail;
     private String mPass;
     private String mPassCheck;
 
+    // Log Tag
     public static final String TAG = "TwitchFlix";
 
     @Override
@@ -82,15 +79,19 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Firebase instantiation
         mDatabase = FirebaseDatabase.getInstance();
         myUserRef = mDatabase.getReference();
         mAuth = FirebaseAuth.getInstance();
-        mCreateButton = findViewById(R.id.create_account_button);
+
+        // View linking
         mUserText = findViewById(R.id.user_edit_text);
         mMailText = findViewById(R.id.email_edit_text);
         mPassText = findViewById(R.id.pass_edit_text);
+        mCreateButton = findViewById(R.id.create_account_button);
         mPassCheckText = findViewById(R.id.passcheck_edit_text);
 
+        // Create Account
         mCreateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,37 +100,39 @@ public class CreateAccountActivity extends AppCompatActivity {
                 mPass = mPassText.getText().toString();
                 mPassCheck = mPassCheckText.getText().toString();
 
-                if(!mMail.contains("@")) {
+                if (!mMail.contains("@")) {
                     Toast.makeText(CreateAccountActivity.this, "Please insert a valid email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(mUser.length()<5 || mUser.length()>15) {
+                if (mUser.length() < 5 || mUser.length() > 15) {
                     Toast.makeText(CreateAccountActivity.this, "Please insert a user with 5 to 14 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(mPass.length()<6) {
+                if (mPass.length() < 6) {
                     Toast.makeText(CreateAccountActivity.this, "Please insert a password of at least 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(!mPass.equals(mPassCheck)) {
+                if (!mPass.equals(mPassCheck)) {
                     Toast.makeText(CreateAccountActivity.this, "Please make sure you typed the same password twice!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                // Check DB for unique username
                 myUserRef.child("users").orderByChild("username").equalTo(mUser).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()) {
+                        if (snapshot.exists()) {
                             Toast.makeText(CreateAccountActivity.this, "This username is already taken!", Toast.LENGTH_SHORT).show();
-                            return;
                         } else {
                             tryToCreate();
                         }
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) { }
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
                 });
-                }
+            }
 
         });
 
@@ -140,19 +143,16 @@ public class CreateAccountActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()) {
+                        if (!task.isSuccessful()) {
                             try {
                                 throw task.getException();
-                            }
-                            catch (FirebaseAuthUserCollisionException existEmail)
-                            {
+                            } catch (FirebaseAuthUserCollisionException existEmail) {
                                 Toast.makeText(CreateAccountActivity.this, "This email is already linked!", Toast.LENGTH_SHORT).show();
-                            }
-                            catch (Exception e)
-                            {
+                            } catch (Exception e) {
                                 Log.d(TAG, "onComplete: " + e.getMessage());
                             }
                         } else {
+                            // Add username and email to DB
                             mFirebaseUser = mAuth.getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(mUser)
@@ -161,7 +161,6 @@ public class CreateAccountActivity extends AppCompatActivity {
                             myUserRef.child("users").child(mUser).setValue(new User(mUser, mMail));
                             startActivity(new Intent(CreateAccountActivity.this, MainActivity.class));
                             finish();
-                            return;
                         }
                     }
                 });

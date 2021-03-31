@@ -30,14 +30,18 @@ public class LoginActivity extends AppCompatActivity {
     public static final String KEY_MAILLOGIN = "LoginEmailKey";
     public static final String KEY_PASSLOGIN = "LoginPassKey";
 
-    // Variables
+    // Views
     Button mLoginButton;
     Button mCreateAccount;
     CheckBox mCheckBox;
     EditText mUsername;
     EditText mPassword;
+
+    // Value holders
     String mUserText = "";
     String mPassText = "";
+
+    // Log Tag
     final String TAG = "TwitchFlix";
 
     // Shared Preferences
@@ -55,16 +59,18 @@ public class LoginActivity extends AppCompatActivity {
 
         sharedPref = this.getSharedPreferences(SHAREDPREF_KEY, MODE_PRIVATE);
 
-
+        // Firebase instantiation
         mFirebaseAuth = FirebaseAuth.getInstance();
 
+        // View linking
         mLoginButton = findViewById(R.id.login_button);
         mCreateAccount = findViewById(R.id.new_account_button);
         mCheckBox = findViewById(R.id.remember_me);
         mUsername = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
 
-        if(sharedPref.getBoolean(KEY_CHECKBOX, false)) {
+        // Check if user asked to be remembered
+        if (sharedPref.getBoolean(KEY_CHECKBOX, false)) {
             mCheckBox.setChecked(true);
             Log.d(TAG, "Checkbox should be checked");
             mUserText = sharedPref.getString(KEY_MAILLOGIN, null);
@@ -77,11 +83,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mUserText = mUsername.getText().toString();
                 mPassText = mPassword.getText().toString();
-                if(mUserText.isEmpty()){
+                if (mUserText.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please insert a valid username or email!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(mPassText.isEmpty()){
+                if (mPassText.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please insert your password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -100,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void tryLogin(String user, String pass) {
-        if(user == null || pass == null) {
+        if (user == null || pass == null) {
             Toast.makeText(this, "There has been an error.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -108,15 +114,15 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+                        if (task.isSuccessful()) {
                             Log.d(TAG, "Login successful.");
-                            if(mCheckBox.isChecked()) {
+                            if (mCheckBox.isChecked()) {                     // Save user information
                                 editor = sharedPref.edit();
                                 editor.putBoolean(KEY_CHECKBOX, true);
                                 editor.putString(KEY_MAILLOGIN, mUserText);
                                 editor.putString(KEY_PASSLOGIN, mPassText);
                                 editor.apply();
-                            } else {
+                            } else {                                        // Make sure checkbox is not ticked
                                 editor = sharedPref.edit();
                                 editor.putBoolean(KEY_CHECKBOX, false);
                                 editor.apply();
@@ -125,8 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                             return;
-                        }
-                        else {
+                        } else {
                             Log.d(TAG, "Login Failed.");
                             editor = sharedPref.edit();
                             editor.putBoolean(KEY_CHECKBOX, false);
