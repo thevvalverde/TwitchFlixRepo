@@ -22,6 +22,7 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".ResetActivity"/>
         <activity android:name=".LoginActivity"
             android:screenOrientation="portrait">
 

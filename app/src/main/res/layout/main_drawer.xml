@@ -29,6 +29,7 @@
 
         <!-- Delete Account icon (has to be separate so it can be dragged to the bottom) -->
         <TextView
+            android:id="@+id/delete_account"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="bottom"

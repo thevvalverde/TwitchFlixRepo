@@ -37,7 +37,7 @@
             android:autofillHints="emailAddress,username"
             android:background="@drawable/login_fields"
             android:hint="@string/hint_username"
-            android:inputType="text" />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/password"

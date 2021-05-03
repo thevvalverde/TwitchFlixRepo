@@ -1,5 +1,7 @@
 package com.felipe.twitchflix;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,15 +10,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
 
 import static com.felipe.twitchflix.LoginActivity.KEY_CHECKBOX;
 import static com.felipe.twitchflix.LoginActivity.SHAREDPREF_KEY;
@@ -70,12 +80,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navUsername.setText(mUsername);
         this.mViewHolder.watchButton = findViewById(R.id.watch_button);
         this.mViewHolder.streamButton = findViewById(R.id.stream_button);
+        this.mViewHolder.deleteAccount = findViewById(R.id.delete_account);
 
 
         this.mViewHolder.watchButton.setOnClickListener(this);
         this.mViewHolder.streamButton.setOnClickListener(this);
 
         mDrawer = findViewById(R.id.drawer_layout);
+
+        this.mViewHolder.deleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Are you sure?");
+                builder.setMessage("Account deletion cannot be undone!");
+                builder.setPositiveButton("Confirm",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // TODO : Implement reauthentication
+                              //  AuthCredential credental = EmailAuthProvider
+                              //          .getCredential(mFirebaseUser.getEmail(), )
+                                mFirebaseUser.delete()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(MainActivity.this, "Account deleted", Toast.LENGTH_SHORT).show();
+                                                } else
+                                                    Toast.makeText(MainActivity.this, "Could not delete", Toast.LENGTH_SHORT).show();
+                                                task.addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                });
+                                            }
+                                        });
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
 
     }
 
@@ -114,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static class ViewHolder {
         Button watchButton;
         Button streamButton;
+        TextView deleteAccount;
     }
 
     private String getUserName() {

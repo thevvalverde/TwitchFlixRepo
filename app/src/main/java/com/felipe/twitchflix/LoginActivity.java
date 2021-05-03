@@ -1,6 +1,8 @@
 package com.felipe.twitchflix;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     // Views
     Button mLoginButton;
     Button mCreateAccount;
+    Button mResetButton;
     CheckBox mCheckBox;
     EditText mUsername;
     EditText mPassword;
@@ -42,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     String mPassText = "";
 
     // Log Tag
-    final String TAG = "TwitchFlix";
+    final static String TAG = "TwitchFlix";
 
     // Shared Preferences
     SharedPreferences sharedPref;
@@ -65,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         // View linking
         mLoginButton = findViewById(R.id.login_button);
         mCreateAccount = findViewById(R.id.new_account_button);
+        mResetButton = findViewById(R.id.forgot_pass_button);
         mCheckBox = findViewById(R.id.remember_me);
         mUsername = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
@@ -100,6 +105,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, CreateAccountActivity.class));
+            }
+        });
+
+        mResetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ResetActivity.class));
             }
         });
 

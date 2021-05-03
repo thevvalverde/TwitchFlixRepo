@@ -8,7 +8,7 @@
     <string name="password_again">Repeat your password:</string>
 
     <!-- Fields' Hints -->
-    <string name="hint_username">Username or E-mail</string>
+    <string name="hint_username">E-mail</string>
     <string name="hint_password">Password</string>
     <string name="hint_create_email">someone@somewhere.example</string>
     <string name="hint_create_password">safepassword123</string>
