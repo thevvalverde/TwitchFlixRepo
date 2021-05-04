@@ -5,10 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // Value holders
     private String mUsername;
+    private String m_Text;
 
     // Firebase instance variables
     private FirebaseAuth mFirebaseAuth;
@@ -99,25 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO : Implement reauthentication
-                              //  AuthCredential credental = EmailAuthProvider
-                              //          .getCredential(mFirebaseUser.getEmail(), )
-                                mFirebaseUser.delete()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    Toast.makeText(MainActivity.this, "Account deleted", Toast.LENGTH_SHORT).show();
-                                                } else
-                                                    Toast.makeText(MainActivity.this, "Could not delete", Toast.LENGTH_SHORT).show();
-                                                task.addOnFailureListener(new OnFailureListener() {
-                                                    @Override
-                                                    public void onFailure(@NonNull Exception e) {
-                                                        e.printStackTrace();
-                                                    }
-                                                });
-                                            }
-                                        });
+                                startActivity(new Intent(MainActivity.this, DeleteActivity.class));
                             }
                         });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -125,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 });
-
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }

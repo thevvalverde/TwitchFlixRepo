@@ -24,10 +24,13 @@
     <string name="button_delete_account">Delete Account</string>
     <string name="button_stream">Stream</string>
     <string name="button_watch">Watch</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_delete">Delete</string>
 
     <!-- Placeholders -->
     <string name="anonymous">anonymous</string>
     <string name="watch_wip">This watch page is a Work In Progress.</string>
     <string name="stream_wip">This stream page is a Work In Progress.</string>
+    <string name="confirm_pass_text">Confirm your password in order to delete this account.</string>
 
 </resources>

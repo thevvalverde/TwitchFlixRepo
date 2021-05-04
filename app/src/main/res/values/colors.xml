@@ -21,6 +21,7 @@
     <color name="bw_white">#FFFFFF</color>
 
     <!-- Warm accent colors -->
+    <color name="carmine_red">#95001B</color>
     <color name="accent_imperial_red">#FF0330</color>
     <color name="accent_olive_gold">#948D26</color>
     <color name="accent_straw_yellow">#E0D967</color>
