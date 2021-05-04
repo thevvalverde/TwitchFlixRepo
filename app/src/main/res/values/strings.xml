@@ -32,5 +32,10 @@
     <string name="watch_wip">This watch page is a Work In Progress.</string>
     <string name="stream_wip">This stream page is a Work In Progress.</string>
     <string name="confirm_pass_text">Confirm your password in order to delete this account.</string>
+    <string name="recovery_text">Enter the e-mail for the account you are trying to recover and we will send you an email</string>
+    <string name="submit">Submit</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="warning">WARNING</string>
+    <string name="logo">LOGO</string>
 
 </resources>
