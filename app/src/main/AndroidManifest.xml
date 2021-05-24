@@ -26,8 +26,10 @@
             android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".ResetActivity" />
-        <activity android:name=".DeleteActivity" />
+        <activity android:name=".ResetActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DeleteActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait">
@@ -37,7 +39,8 @@
             android:name=".WatchActivity"
             android:theme="@style/SingleTheme.TwitchFlix" />
         <activity android:name=".StreamActivity" />
-        <activity android:name=".CreateAccountActivity" />
+        <activity android:name=".CreateAccountActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"
