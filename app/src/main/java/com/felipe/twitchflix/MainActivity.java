@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = headerView.findViewById(R.id.nav_header_title);
 
-        // For some reason this doesn't work
+        // TODO
+        // Username display does not update upon account creation.
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
