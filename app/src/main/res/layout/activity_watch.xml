@@ -9,11 +9,39 @@
     tools:context=".WatchActivity">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/watch_wip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Watch"
+        android:layout_gravity="center_horizontal"
         android:textColor="@color/bw_white"
-        android:textSize="36sp" />
+        android:textStyle="bold"
+        android:fontFamily="@font/alfa_slab_one"
+        android:textSize="42sp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fontFamily="@font/armata"
+        android:text="See Live content"
+        android:textSize="32sp"
+        android:elevation="8dp"
+        style="@style/ButtonText"
+        android:layout_margin="10dp"
+        android:onClick="StartLive"
+        android:background="@drawable/button_bg_one"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fontFamily="@font/armata"
+        android:text="See VoDs"
+        android:textSize="32sp"
+        android:onClick="StartVod"
+        android:elevation="8dp"
+        style="@style/ButtonText"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_bg_one"/>
+
 
 </LinearLayout>
