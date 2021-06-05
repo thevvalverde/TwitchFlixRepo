@@ -37,5 +37,8 @@
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="warning">WARNING</string>
     <string name="logo">LOGO</string>
+    <string name="author">author</string>
+    <string name="video_title">Video title</string>
+    <string name="thumbnail">thumbnail</string>
 
 </resources>

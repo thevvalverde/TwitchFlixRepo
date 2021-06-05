@@ -15,10 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.ArrayList;
 
 import static com.felipe.twitchflix.LoginActivity.KEY_CHECKBOX;
 import static com.felipe.twitchflix.LoginActivity.SHAREDPREF_KEY;
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Views & Layouts
     static ViewHolder mViewHolder = new ViewHolder();
     private DrawerLayout mDrawer;
+    private RecyclerView mRecyclerView;
+    private MyAdapter mAdapter;
+    private ArrayList<VideoItem> mVideoList;
 
     // Value holders
     private String mUsername;
