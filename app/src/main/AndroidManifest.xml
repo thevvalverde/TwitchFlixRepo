@@ -3,9 +3,11 @@
     package="com.felipe.twitchflix">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_title"
@@ -43,6 +45,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".LiveActivity"/>
         <activity android:name=".VodActivity"/>
+        <activity android:name=".VideoActivity"
+            android:screenOrientation="landscape"/>
 
         <meta-data
             android:name="preloaded_fonts"

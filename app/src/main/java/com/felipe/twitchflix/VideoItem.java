@@ -1,25 +1,25 @@
 package com.felipe.twitchflix;
 
 public class VideoItem {
-    private String mThumbnailUrl;
+    private String mUrl;
     private String mTitle;
-    private String mAuthor;
+    private String mType;
 
-    public VideoItem(String thumbnailUrl, String title, String author) {
-        mThumbnailUrl = thumbnailUrl;
+    public VideoItem(String url, String title, String type) {
+        mUrl = url;
         mTitle = title;
-        mAuthor = author;
+        mType = type;
     }
 
-    public String getThumbnailUrl() {
-        return mThumbnailUrl;
+    public String getUrl() {
+        return mUrl;
     }
 
     public String getTitle() {
         return mTitle;
     }
 
-    public String getAuthor() {
-        return mAuthor;
+    public String getType() {
+        return mType;
     }
 }

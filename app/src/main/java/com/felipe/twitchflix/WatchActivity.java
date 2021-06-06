@@ -16,10 +16,10 @@ public class WatchActivity extends AppCompatActivity {
     }
 
     public void StartVod(View view) {
-        startActivity(new Intent(WatchActivity.this, LiveActivity.class));
+        startActivity(new Intent(WatchActivity.this, VodActivity.class));
     }
 
     public void StartLive(View view) {
-        startActivity(new Intent(WatchActivity.this, VodActivity.class));
+        startActivity(new Intent(WatchActivity.this, LiveActivity.class));
     }
 }

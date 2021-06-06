@@ -34,9 +34,9 @@ public class LiveActivity extends AppCompatActivity {
     //    for(int i = 0; i < ?; i++) {
     //        String title = ?;
     //        String author = ?;
-    //        String thumbnailUrl = ?;
+    //        String url = ?;
     //
-    //        mList.add(new VideoItem(title, author, thumbnailUrl))
+    //        mList.add(new VideoItem(url, title, type))
     //    }
 
         mAdapter = new MyAdapter(LiveActivity.this, mList);
